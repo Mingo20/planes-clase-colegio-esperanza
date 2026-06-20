@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plan de Clase — Carmen Chalas | Matemática 3er Grado</title>
+  <meta name="description" content="Plan de clase diario de Matemática para 3er grado del nivel primario. Tablas de multiplicar del 6 y 7. Docente: Carmen Chalas. Colegio Reformado la Esperanza.">
+  <style>
+    :root {
+      --azul: #1a3a6b;
+      --azul-claro: #2563eb;
+      --verde: #059669;
+      --naranja: #d97706;
+      --morado: #7c3aed;
+      --gris-bg: #f8fafc;
+      --gris-borde: #e2e8f0;
+      --texto: #1e293b;
+      --texto-suave: #64748b;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--gris-bg);
+      color: var(--texto);
+      min-height: 100vh;
+      padding: 20px 16px 40px;
+      line-height: 1.6;
+    }
+
+    /* ===== LAYOUT ===== */
+    .wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ===== PRINT BUTTON ===== */
+    .print-btn {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 12px;
+    }
+    .print-btn button {
+      background: var(--azul);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .print-btn button:hover { background: var(--azul-claro); }
+
+    /* ===== CARD ===== */
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: linear-gradient(135deg, var(--azul) 0%, #1e4fc2 60%, var(--azul-claro) 100%);
+      color: white;
+      padding: 32px 28px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      right: -40px; top: -40px;
+      width: 220px; height: 220px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .header .institution {
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 8px;
+    }
+    .header h1 {
+      font-size: clamp(20px, 4vw, 28px);
+      font-weight: 800;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+    .header .subtitle {
+      font-size: 15px;
+      opacity: 0.85;
+      font-weight: 400;
+    }
+    .header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-top: 12px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ===== META GRID ===== */
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--gris-borde);
+    }
+    .meta-cell {
+      padding: 14px 20px;
+      border-right: 1px solid var(--gris-borde);
+      border-bottom: 1px solid var(--gris-borde);
+    }
+    .meta-cell:nth-child(3n) { border-right: none; }
+    .meta-cell:nth-last-child(-n+3) { border-bottom: none; }
+    .meta-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--texto-suave);
+      margin-bottom: 3px;
+    }
+    .meta-value {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--azul);
+    }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--gris-borde);
+    }
+    .section:last-child { border-bottom: none; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .section-num {
+      width: 30px; height: 30px;
+      background: var(--azul);
+      color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--azul);
+      border-bottom: 2px solid var(--azul-claro);
+      padding-bottom: 4px;
+      flex: 1;
+    }
+
+    p { font-size: 14px; line-height: 1.75; color: #374151; }
+
+    /* ===== CONTENIDOS ===== */
+    .contenidos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .contenido-card {
+      border-radius: 10px;
+      padding: 14px 16px;
+      border-left: 4px solid;
+    }
+    .contenido-card.conceptual { background: #eff6ff; border-color: var(--azul-claro); }
+    .contenido-card.procedimental { background: #f0fdf4; border-color: var(--verde); }
+    .contenido-card.actitudinal { background: #fffbeb; border-color: var(--naranja); }
+    .contenido-tipo {
+      font-size: 10px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 1.2px;
+      margin-bottom: 6px;
+    }
+    .conceptual .contenido-tipo { color: var(--azul-claro); }
+    .procedimental .contenido-tipo { color: var(--verde); }
+    .actitudinal .contenido-tipo { color: var(--naranja); }
+    .contenido-card p { font-size: 13px; }
+
+    /* ===== SITUACION ===== */
+    .situacion-box {
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      border: 1px solid #93c5fd;
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 14px;
+      line-height: 1.75;
+      color: #1e3a8a;
+      font-style: italic;
+      position: relative;
+      padding-left: 52px;
+    }
+    .situacion-box::before {
+      content: '💡';
+      position: absolute; left: 16px; top: 16px;
+      font-size: 20px;
+    }
+
+    /* ===== ACTIVIDADES ===== */
+    .phase {
+      margin-bottom: 18px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .phase:last-child { margin-bottom: 0; }
+    .phase-header {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 16px;
+      font-size: 12px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+    .phase-inicio .phase-header { background: #dcfce7; color: #166534; }
+    .phase-desarrollo .phase-header { background: #dbeafe; color: #1e3a8a; }
+    .phase-cierre .phase-header { background: #fef3c7; color: #92400e; }
+    .phase-time {
+      margin-left: auto;
+      font-size: 11px;
+      font-weight: 400;
+      opacity: 0.75;
+    }
+    .phase-body {
+      padding: 12px 16px;
+      background: #fafafa;
+    }
+    .phase-body ul { list-style: none; padding: 0; }
+    .phase-body li {
+      font-size: 14px; line-height: 1.7;
+      padding: 4px 0 4px 22px;
+      color: #374151;
+      position: relative;
+    }
+    .phase-body li::before {
+      content: '▸';
+      position: absolute; left: 0; top: 4px;
+      color: var(--azul-claro); font-size: 12px;
+    }
+
+    /* ===== RECURSOS ===== */
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      color: #166534;
+      font-size: 12px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    /* ===== EVALUACION ===== */
+    .eval-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+    }
+    .eval-card {
+      background: #faf5ff;
+      border: 1px solid #ddd6fe;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .eval-card-title {
+      font-size: 10px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 1.2px;
+      color: var(--morado); margin-bottom: 8px;
+    }
+    .eval-card p { font-size: 13px; }
+    .eval-card ul { list-style: none; padding: 0; }
+    .eval-card li {
+      font-size: 13px; line-height: 1.6;
+      padding: 3px 0 3px 16px; position: relative; color: #374151;
+    }
+    .eval-card li::before {
+      content: '✓'; position: absolute; left: 0;
+      color: var(--verde); font-size: 11px; top: 4px;
+    }
+
+    /* ===== TAREA ===== */
+    .tarea-box {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 12px;
+      padding: 16px 20px 16px 52px;
+      font-size: 14px; line-height: 1.75;
+      color: #9a3412;
+      position: relative;
+    }
+    .tarea-box::before {
+      content: '📝';
+      position: absolute; left: 16px; top: 16px;
+      font-size: 20px;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--azul);
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      padding: 16px;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+    .footer strong { color: white; }
+
+    /* ===== PRINT ===== */
+    @media print {
+      body { background: white; padding: 0; }
+      .card { box-shadow: none; border-radius: 0; }
+      .print-btn { display: none; }
+      .phase-body { background: white; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      body { padding: 10px 8px 30px; }
+      .header { padding: 24px 18px 18px; }
+      .section { padding: 18px 16px; }
+      .meta { grid-template-columns: repeat(2, 1fr); }
+      .meta-cell:nth-child(2n) { border-right: none; }
+      .meta-cell:nth-child(3n) { border-right: 1px solid var(--gris-borde); }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Botón imprimir -->
+  <div class="print-btn">
+    <button onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+  </div>
+
+  <div class="card">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="institution">Colegio Reformado la Esperanza — República Dominicana</div>
+      <h1>📚 Plan de Clase Diario</h1>
+      <div class="subtitle">Área Curricular: Matemática</div>
+      <div class="badge">Currículo MINERD · Nivel Primario</div>
+    </div>
+
+    <!-- META -->
+    <div class="meta">
+      <div class="meta-cell"><div class="meta-label">Docente</div><div class="meta-value">Carmen Chalas</div></div>
+      <div class="meta-cell"><div class="meta-label">Año Escolar</div><div class="meta-value">2025-2026</div></div>
+      <div class="meta-cell"><div class="meta-label">Grado y Sección</div><div class="meta-value">3er Grado — Sección A</div></div>
+      <div class="meta-cell"><div class="meta-label">Nivel</div><div class="meta-value">Primario</div></div>
+      <div class="meta-cell"><div class="meta-label">Trimestre</div><div class="meta-value">3er Trimestre</div></div>
+      <div class="meta-cell"><div class="meta-label">Fecha</div><div class="meta-value">19 de junio de 2026</div></div>
+    </div>
+
+    <!-- 1. COMPETENCIAS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <div class="section-title">Competencias Específicas</div>
+      </div>
+      <p>Resuelve situaciones problemáticas que implican la multiplicación de números naturales de una cifra, reconociendo su utilidad en contextos de la vida cotidiana y aplicando diferentes estrategias de cálculo.</p>
+    </div>
+
+    <!-- 2. CONTENIDOS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <div class="section-title">Contenidos</div>
+      </div>
+      <div class="contenidos-grid">
+        <div class="contenido-card conceptual">
+          <div class="contenido-tipo">📘 Conceptual</div>
+          <p>La multiplicación como suma repetida. Tablas del 6 y el 7. Propiedad conmutativa de la multiplicación.</p>
+        </div>
+        <div class="contenido-card procedimental">
+          <div class="contenido-tipo">⚙️ Procedimental</div>
+          <p>Construcción y uso de las tablas del 6 y 7. Resolución de problemas en contextos reales con materiales concretos.</p>
+        </div>
+        <div class="contenido-card actitudinal">
+          <div class="contenido-tipo">💛 Actitudinal</div>
+          <p>Perseverancia ante dificultades. Trabajo colaborativo y respeto a los turnos de participación.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. SITUACION -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <div class="section-title">Situación de Aprendizaje</div>
+      </div>
+      <div class="situacion-box">
+        "En la tienda de la escuela hay 6 cajas de lápices. Cada caja tiene 7 lápices. ¿Cuántos lápices hay en total?" — Los estudiantes resuelven usando suma repetida, dibujo o tabla de multiplicar.
+      </div>
+    </div>
+
+    <!-- 4. ACTIVIDADES -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <div class="section-title">Secuencia de Actividades</div>
+      </div>
+      <div class="phase phase-inicio">
+        <div class="phase-header">🟢 Inicio <span class="phase-time">10 minutos</span></div>
+        <div class="phase-body"><ul>
+          <li>Repaso oral de las tablas del 2 al 5 con palmas y ritmo grupal.</li>
+          <li>Presentación de la situación de los lápices y pregunta detonadora.</li>
+          <li>Lluvia de ideas sobre estrategias conocidas.</li>
+        </ul></div>
+      </div>
+      <div class="phase phase-desarrollo">
+        <div class="phase-header">🔵 Desarrollo <span class="phase-time">25 minutos</span></div>
+        <div class="phase-body"><ul>
+          <li>En parejas, representan la multiplicación con fichas o semillas.</li>
+          <li>Construcción colectiva de la tabla del 6 en la pizarra, sumando de 6 en 6.</li>
+          <li>Repiten el proceso con la tabla del 7, identificando el patrón.</li>
+          <li>Resolución individual de 4 ejercicios del libro (pág. 112-113).</li>
+        </ul></div>
+      </div>
+      <div class="phase phase-cierre">
+        <div class="phase-header">🟡 Cierre <span class="phase-time">10 minutos</span></div>
+        <div class="phase-body"><ul>
+          <li>Cada estudiante crea un problema propio con la tabla del 6 o del 7.</li>
+          <li>Tres voluntarios comparten su problema con la clase.</li>
+          <li>La docente cierra resolviendo la situación inicial y reforzando el concepto.</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <!-- 5. RECURSOS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <div class="section-title">Recursos y Materiales</div>
+      </div>
+      <div class="tags">
+        <span class="tag">📗 Libro de Matemática 3er grado (MINERD)</span>
+        <span class="tag">🖊️ Pizarra y marcadores</span>
+        <span class="tag">🔵 Fichas o semillas</span>
+        <span class="tag">📓 Cuadernos</span>
+        <span class="tag">📄 Fotocopias de práctica</span>
+      </div>
+    </div>
+
+    <!-- 6. EVALUACION -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">6</div>
+        <div class="section-title">Evaluación</div>
+      </div>
+      <div class="eval-grid">
+        <div class="eval-card">
+          <div class="eval-card-title">✅ Indicadores de Logro</div>
+          <ul>
+            <li>Multiplica correctamente con las tablas del 6 y 7.</li>
+            <li>Resuelve al menos 3 de 4 ejercicios de forma autónoma.</li>
+            <li>Crea un problema multiplicativo coherente.</li>
+          </ul>
+        </div>
+        <div class="eval-card">
+          <div class="eval-card-title">🔍 Técnica</div>
+          <p>Observación directa durante el trabajo en parejas y revisión del cuaderno.</p>
+        </div>
+        <div class="eval-card">
+          <div class="eval-card-title">📋 Instrumento</div>
+          <p>Lista de cotejo con criterios de desempeño definidos por competencia.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. TAREA -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-num">7</div>
+        <div class="section-title">Tarea / Actividad en Casa</div>
+      </div>
+      <div class="tarea-box">
+        Resolver 5 ejercicios de multiplicación con las tablas del 6 y 7. Traer un ejemplo de multiplicación de la vida real (recibo, etiqueta, receta) para la próxima clase.
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      Generado por <strong>Delega</strong> · Colegio Reformado la Esperanza · Desarrollado por <strong>DGtech</strong>
+    </div>
+
+  </div><!-- /.card -->
+</div><!-- /.wrapper -->
+</body>
+</html>
